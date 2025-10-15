@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>مولّد إعلان عقاري - قالب بوصال (نسخة 123)</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h2>🧱 نموذج إنشاء إعلان عقاري (قالب 123)</h2>
+  <form id="adForm">
+    <div class="row">
+      <select id="operation" required>
+        <option value="">العملية</option>
+        <option value="للبيع">للبيع</option>
+        <option value="للإيجار">للإيجار</option>
+        <option value="للاستثمار">للاستثمار</option>
+      </select>
+
+      <select id="type" required>
+        <option value="">نوع العقار</option>
+        <option value="أرض سكنية">أرض سكنية</option>
+        <option value="فيلا">فيلا</option>
+        <option value="شقة">شقة</option>
+        <option value="عمارة سكنية">عمارة سكنية</option>
+        <option value="قصر">قصر</option>
+        <option value="دوبلكس">دوبلكس</option>
+        <option value="تاون هاوس">تاون هاوس</option>
+      </select>
+
+      <input type="text" id="name" placeholder="اسم / عنوان العقار" required>
+    </div>
+
+    <label>📍 المكان (رابط خرائط أو وصف مختصر):</label>
+    <input type="text" id="location" placeholder="مثال: https://maps.app.goo.gl/..." required>
+
+    <label>📸 صورة العقار:</label>
+    <input type="file" id="image" accept="image/*" required>
+
+    <div class="row two">
+      <div class="half">
+        <label>📏 المساحة (م²):</label>
+        <input type="text" id="area" placeholder="مثال: 750">
+      </div>
+      <div class="half">
+        <label>💰 السعر (ريال):</label>
+        <input type="text" id="price" placeholder="مثال: 950000">
+      </div>
+    </div>
+
+    <label>📝 مواصفات / تفاصيل العقار:</label>
+    <textarea id="details" rows="3" placeholder="مثال: شارع 20م، زاوية، 3 واجهات، قريبة من الخدمات"></textarea>
+
+    <button type="button" id="generate">🎨 عرض الإعلان</button>
+  </form>
+
+  <!-- عرض الإعلان النهائي -->
+  <div id="preview" class="hidden">
+    <div id="adCard" aria-label="بطاقة الإعلان">
+      <img id="template" src="assets/123.png" alt="قالب الإعلان 123">
+
+      <!-- طبقة الإدراج -->
+      <div class="overlay">
+        <!-- الشريط الداكن العلوي: العناصر الثلاثة في صف واحد -->
+        <div class="header-bar">
+          <span id="outOperation">للبيع</span>
+          <span class="divider">•</span>
+          <span id="outType">فيلا</span>
+          <span class="divider">•</span>
+          <span id="outName">عنوان الإعلان</span>
+        </div>
+
+        <!-- منطقة الصورة داخل الإطار الأخضر -->
+        <img id="outImage" src="" alt="صورة العقار">
+
+        <!-- مواصفات / المساحة / السعر -->
+        <div id="specTitle">مواصفات العقار :</div>
+        <div id="detailsText"></div>
+
+        <div id="areaBlock"><span class="lbl">مساحة العقار :</span> <span id="outArea"></span> م²</div>
+        <div id="priceBlock"><span class="lbl">سعر العقار :</span> <span id="outPrice"></span> ريال</div>
+
+        <!-- QR Code على الجانب الأيسر منتصف البطاقة -->
+        <div id="qrWrap"><div id="qrcode"></div></div>
+      </div>
+    </div>
+
+    <div class="buttons">
+      <button id="download">⬇️ تنزيل الصورة</button>
+      <button id="share">📲 مشاركة</button>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script src="script.js"></script>
+
+</body>
+</html>
